@@ -1,5 +1,6 @@
 package page;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -15,7 +16,7 @@ public class MainPage {
 
 // Локаторы
     // кнопка "Личный Кабинет"
-    private By personalAccountButton = By.xpath("//p[@class='AppHeader_header__linkText__3q_va ml-2' and text()='Личный Кабинет']");
+    private By personalAccountButton = By.xpath("//p[text()='Личный Кабинет']");
 
     // кнопка "Войти в аккаунт"
     private By signInAccountButton = By.xpath("//button[text()=\"Войти в аккаунт\"]");
@@ -30,66 +31,57 @@ public class MainPage {
     private By toppingsTab = By.xpath("//span[text()='Начинки']");
 
     // активная вкладка "Булки"
-    private By activeBunsTab = By.xpath("/html/body/div/div/main/section[1]/div[1]/div[1][@class = 'tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']");
+    private By activeBunsTab = By.xpath("//span[text()='Булки']/parent::div[contains(@class, 'tab_tab_type_current')]");
 
     // активная вкладка "Соусы"
-    private By activeSauceTab = By.xpath("/html/body/div/div/main/section[1]/div[1]/div[2][@class = 'tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']");
+    private By activeSauceTab = By.xpath("//span[text()='Соусы']/parent::div[contains(@class, 'tab_tab_type_current')]");
 
     // активная вкладка "Начинки"
-    private By activeToppingsTab = By.xpath("/html/body/div/div/main/section[1]/div[1]/div[3][@class = 'tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']");
+    private By activeToppingsTab = By.xpath("//span[text()='Начинки']/parent::div[contains(@class, 'tab_tab_type_current')]");
 
 // Методы
-    // Открыть сайт
+    @Step("Открываем сайт")
     public void openPage() {
         driver.get(BASE_URI);
     }
 
-    // Нажать на кнопку "Личный Кабинет"
+    @Step("Нажимаем на кнопку \"Личный кабинет\" на главной странице")
     public void clickPersonalAccountButton() {
         driver.findElement(personalAccountButton).click();
     }
 
-    // Нажать на кнопку "Войти в аккаунт"
+    @Step("Нажимаем на кнопку \"Войти в аккаунт\" на главной странице")
     public void clickSignInAccountButton() {
         driver.findElement(signInAccountButton).click();
     }
 
-    // Нажать на вкладку "Булки"
+    @Step("Нажимаем на вкладку \"Булки\" на главной странице")
     public void clickBunsTab() {
         driver.findElement(bunsTab).click();
     }
 
-    // Нажать на вкладку "Соусы"
+    @Step("Нажимаем на вкладку \"Соусы\" на главной странице")
     public void clickSauceTab() {
         driver.findElement(sauceTab).click();
     }
 
-    // Нажать на вкладку "Начинки"
+    @Step("Нажимаем на вкладку \"Начинки\" на главной странице")
     public void clickToppingsTab() {
         driver.findElement(toppingsTab).click();
     }
 
-    // Возвращает True или False, в зависимости от того, стала ли активной вкладка "Булки" (появляется синяя полоса под вкладкой)
+    @Step("Проверяем, что вкладка \"Булки\" на главной странице стала активной (появилась синяя полоса под вкладкой")
     public boolean isDisplayedActiveBunsTab(){
         return driver.findElement(activeBunsTab).isDisplayed();
     }
 
-    // Возвращает True или False, в зависимости от того, стала ли активной вкладка "Соусы" (появляется синяя полоса под вкладкой)
+    @Step("Проверяем, что вкладка \"Соусы\" на главной странице стала активной (появилась синяя полоса под вкладкой")
     public boolean isDisplayedActiveSauceTab(){
         return driver.findElement(activeSauceTab).isDisplayed();
     }
 
-    // Возвращает True или False, в зависимости от того, стала ли активной вкладка "Начинки" (появляется синяя полоса под вкладкой)
+    @Step("Проверяем, что вкладка \"Начинки\" на главной странице стала активной (появилась синяя полоса под вкладкой")
     public boolean isDisplayedActiveToppingsTab(){
         return driver.findElement(activeToppingsTab).isDisplayed();
     }
-
-
-
-
-
-
-
-
-
 }

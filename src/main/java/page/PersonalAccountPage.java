@@ -1,5 +1,6 @@
 package page;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,14 +18,10 @@ public class PersonalAccountPage {
     private By loginField = By.cssSelector("input[type='text'][name='name']");
 
 // Методы
-    // получить значение поля "Логин"
+    @Step("Получаем значение поля \"Логин\" в личном кабинете")
     public String getLoginField() {
             WebElement element = driver.findElement(loginField);
             String actualLoginField = element.getAttribute("value");
             return actualLoginField;
         }
     }
-
-
-
-

@@ -1,5 +1,6 @@
 package page;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -22,17 +23,17 @@ public class RestorePasswordPage {
     private By loginButton = By.className("Auth_link__1fOlj");
 
 // Методы
-    // Ввести email пользователя
+    @Step("Вводим email пользователя на странице восстановления пароля")
     public void enterEmail(String email) {
     driver.findElement(emailInputField).sendKeys(email);
     }
 
-    // Нажать на кнопку "Восстановить"
+    @Step("Нажимаем на кнопку \"Восстановить\" на странице восстановления пароля")
     public void clickRestoreButton() {
         driver.findElement(restoreButton).click();
     }
 
-    // Нажать на кнопку "Войти"
+    @Step("Нажимаем на кнопку \"Войти\" на странице восстановления пароля")
     public void clickLoginButton() {
         driver.findElement(loginButton).click();
     }

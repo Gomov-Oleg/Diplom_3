@@ -139,11 +139,3 @@ public class LoginUserTest extends BaseUiTest{
         userSteps.cleanUp(userLogin, email);
     }
     }
-
-
-
-
-
-
-
-

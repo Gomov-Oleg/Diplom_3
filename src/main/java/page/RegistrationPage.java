@@ -1,5 +1,6 @@
 package page;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,10 +15,10 @@ public class RegistrationPage {
 
 // Локаторы
     // поле ввода имени
-    private By nameInputField = By.xpath("//*[@id=\"root\"]/div/main/div/form/fieldset[1]/div/div/input");
+    private By nameInputField = By.xpath("//label[text()='Имя']/following-sibling::input[@name='name']");
 
     // поле ввода email
-    private By emailInputField = By.xpath("//*[@id=\"root\"]/div/main/div/form/fieldset[2]/div/div/input");
+    private By emailInputField = By.xpath("//label[text()='Email']/following-sibling::input[@name='name']");
 
     // поле ввода пароля
     private By passwordInputField = By.cssSelector("input[name='Пароль']");
@@ -32,32 +33,32 @@ public class RegistrationPage {
     private By errorMessageIncorrectPassword = By.className("input__error");
 
 // Методы
-    // Ввести имя пользователя
+    @Step("Вводим имя пользователя на странице регистрации")
     public void enterName(String name) {
     driver.findElement(nameInputField).sendKeys(name);
     }
 
-    // Ввести email пользователя
+    @Step("Вводим email пользователя на странице регистрации")
     public void enterEmail(String email) {
         driver.findElement(emailInputField).sendKeys(email);
     }
 
-    // Ввести пароль
+    @Step("Вводим пароль на странице регистрации")
     public void enterPassword(String password) {
         driver.findElement(passwordInputField).sendKeys(password);
     }
 
-    // Нажать на кнопку "Зарегистрироваться"
+    @Step("Нажимаем на кнопку \"Зарегистрироваться\" на странице регистрации")
     public void clickRegisterButton() {
         driver.findElement(registerButton).click();
     }
 
-    // Нажать на кнопку "Войти"
+    @Step("Нажимаем на кнопку \"Войти\" на странице регистрации")
     public void clickLoginButton() {
         driver.findElement(loginButton).click();
     }
 
-    // Проверить, что появилось сообщение "Некорректный пароль"
+    @Step("Проверяем, что появилось сообщение \"Некорректный пароль\" на странице регистрации")
     public WebElement getErrorMessageIncorrectPassword(){
         WebElement messageError = driver.findElement(errorMessageIncorrectPassword);
         return messageError;

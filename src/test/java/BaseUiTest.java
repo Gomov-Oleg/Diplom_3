@@ -65,4 +65,3 @@ public class BaseUiTest extends BaseApiTest {
         driver.quit();
     }
 }
-
